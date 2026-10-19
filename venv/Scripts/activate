@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="E:\Antigravity Project\Tools New\IPCheckOptimizeDevice\venv"
+VIRTUAL_ENV="G:\AntiGravity Project\New Project AI\IPCheckOptimizeDevice\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

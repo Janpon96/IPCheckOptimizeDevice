@@ -23,6 +23,13 @@ except ImportError:
 
 import device_guard
 
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEY_DIR = os.path.join(BASE_DIR, "tools", "adbkey")
 KEY_PATH = os.path.join(KEY_DIR, "adbkey")
@@ -68,7 +75,8 @@ class DeviceManager:
                 f"       - Máy tính và thiết bị chưa cùng 1 mạng Wi-Fi (hoặc router bật AP Isolation).\n"
                 f"       - Hãy nhìn lên màn hình TV xem có hộp thoại 'Allow USB debugging?' không và chọn 'Always Allow'.\n"
             )
-            sys.exit(msg)
+            print(msg)
+            sys.exit(1)
 
     def close(self) -> None:
         if self.dev:

@@ -24,7 +24,9 @@ param(
     [int]$Port = 5555
 )
 
-$ErrorActionPreference = 'Stop'
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+$ErrorActionPreference = 'Continue'
 $repo = Split-Path -Parent $PSScriptRoot
 $py = Join-Path $repo 'venv\Scripts\python.exe'
 $mgr = Join-Path $repo 'tools\device_manager.py'
